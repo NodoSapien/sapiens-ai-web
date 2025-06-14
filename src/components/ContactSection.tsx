@@ -1,35 +1,8 @@
 
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Github, ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Mensaje enviado",
-      description: "Gracias por contactarnos. Te responderemos pronto.",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
     <section id="contacto" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,118 +11,74 @@ const ContactSection = () => {
             Conecta con <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">Nosotros</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            ¿Tienes una idea que quieres transformar en realidad? Conversemos sobre cómo la inteligencia artificial 
-            puede impulsar tu próximo proyecto innovador.
+            ¿Tienes una idea que quieres transformar en realidad? Únete a nuestra comunidad en GitHub 
+            y descubre cómo la inteligencia artificial puede impulsar tu próximo proyecto innovador.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-violet-600 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Email</p>
-                    <p className="text-gray-600">contacto@nodosapiens.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Teléfono</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Ubicación</p>
-                    <p className="text-gray-600">Innovación Digital, Ciudad Futurista</p>
-                  </div>
-                </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-2xl p-12 text-center">
+            <div className="flex justify-center mb-8">
+              <div className="w-20 h-20 bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center shadow-xl">
+                <Github className="w-10 h-10 text-white" />
               </div>
             </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-violet-50 rounded-2xl p-6">
-              <h4 className="font-bold text-gray-900 mb-3">¿Por qué elegir NodoSapiens?</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>✨ Enfoque innovador y creativo</li>
-                <li>🤖 Expertise en inteligencia artificial</li>
-                <li>🎯 Soluciones personalizadas</li>
-                <li>🚀 Resultados medibles y escalables</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-2xl p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nombre completo
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Tu nombre"
-                  className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="tu@email.com"
-                  className="border-gray-200 focus:border-blue-500 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mensaje
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Cuéntanos sobre tu proyecto o idea..."
-                  rows={5}
-                  className="border-gray-200 focus:border-blue-500 focus:ring-blue-500 resize-none"
-                  required
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-700 hover:to-violet-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+            
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              Encuéntranos en GitHub
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              GitHub es nuestro punto de encuentro principal. Aquí compartimos proyectos, 
+              colaboramos en ideas innovadoras y construimos el futuro de la IA juntos.
+            </p>
+            
+            <Button 
+              asChild
+              className="bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group text-lg"
+            >
+              <a 
+                href="https://github.com/NodoSapien" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center"
               >
-                Enviar mensaje
-                <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
+                <Github className="mr-3 w-6 h-6" />
+                Visitar NodoSapien en GitHub
+                <ExternalLink className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-violet-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Colabora</h4>
+                <p className="text-gray-600 text-sm">
+                  Participa en discusiones y contribuye a proyectos de IA innovadores
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-12 h-12 bg-gradient-to-r from-violet-600 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Github className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Explora</h4>
+                <p className="text-gray-600 text-sm">
+                  Descubre repositorios con soluciones de inteligencia artificial
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <ExternalLink className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Conecta</h4>
+                <p className="text-gray-600 text-sm">
+                  Únete a una comunidad de innovadores y desarrolladores
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

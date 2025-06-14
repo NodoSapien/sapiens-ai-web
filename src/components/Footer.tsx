@@ -1,5 +1,5 @@
 
-import { Brain, Linkedin, Twitter, Mail } from "lucide-react";
+import { Brain, Github, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -20,15 +20,16 @@ const Footer = () => {
               Transformamos ideas visionarias en realidades tangibles mediante la convergencia 
               entre creatividad humana e inteligencia artificial.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-violet-600 transition-colors">
-                <Mail className="w-5 h-5" />
+            <div className="flex items-center space-x-4">
+              <a 
+                href="https://github.com/NodoSapien" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 bg-gray-800 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors group"
+              >
+                <Github className="w-5 h-5" />
+                <span className="text-sm font-medium">GitHub</span>
+                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>
           </div>
@@ -49,7 +50,17 @@ const Footer = () => {
               <li><a href="#sobre-nosotros" className="hover:text-blue-400 transition-colors">Sobre Nosotros</a></li>
               <li><a href="#servicios" className="hover:text-blue-400 transition-colors">Nuestros Servicios</a></li>
               <li><a href="#contacto" className="hover:text-blue-400 transition-colors">Contacto</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Blog</a></li>
+              <li>
+                <a 
+                  href="https://github.com/NodoSapien" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors flex items-center"
+                >
+                  GitHub
+                  <ExternalLink className="w-3 h-3 ml-1" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
